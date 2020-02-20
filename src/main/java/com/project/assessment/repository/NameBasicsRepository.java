@@ -10,14 +10,14 @@ import com.project.assessment.model.NameBasics;
 @Repository
 public interface NameBasicsRepository extends MongoRepository<NameBasics, String> {
 
-	List<NameBasics> findByPrimaryNameContaining(String actorName);
+	List<NameBasics> findByNconstIn(List<String> list);
 
 	NameBasics findByNconst(String string);
 
-	List<NameBasics> findByNconstIn(List<String> list);
-
 	List<NameBasics> findByKnownForTitlesIn(List<String> listOfTitles);
 
-	
-	
+	List<NameBasics> findByPrimaryName(String list);
+
+	List<NameBasics> findByPrimaryNameIn(List<String> list);
+
 }

@@ -16,5 +16,11 @@ public class CoincidenceInfoResponse extends BaseResponse{
 	
 	@JsonProperty("coincidenceMovies")
 	private List<String> coincidenceMovies;
+	
+	public void setResponse(List<String> coincidenceMovies,String msg) {
+		this.coincidenceMovies = coincidenceMovies;
+		setSuccess(msg);
+		
+	}
 
 }

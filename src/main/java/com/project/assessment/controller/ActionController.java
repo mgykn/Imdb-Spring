@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.assessment.request.CoincidenceReq;
+import com.project.assessment.request.ActorRequest;
 import com.project.assessment.response.CoincidenceInfoResponse;
 import com.project.assessment.response.DegreeInfoResponse;
 import com.project.assessment.response.TypecastedInfoResponse;
@@ -28,10 +29,10 @@ public class ActionController {
 	
 	@ApiOperation(value = "Typecasting", notes = "Check and Determine is it typecasting.")
 	@RequestMapping(value = "/typecast", method = RequestMethod.POST)
-	public ResponseEntity<TypecastedInfoResponse> checkTypecasting(@RequestBody String actorName){
-		log.info("Starting checkTypecasting process {}",actorName);
+	public ResponseEntity<TypecastedInfoResponse> checkTypecasting(@RequestBody ActorRequest actorRequest){
+		log.info("Starting checkTypecasting process {}",actorRequest);
 		
-		TypecastedInfoResponse response = this.actionService.typeCastProcess(actorName);
+		TypecastedInfoResponse response = this.actionService.typeCastProcess(actorRequest);
 		return ResponseEntity.accepted().body(response);
 	}
 	
@@ -46,9 +47,9 @@ public class ActionController {
 	
 	@ApiOperation(value = " ", notes = "calculate degree of separation between Kevin Bacon")
 	@RequestMapping(value = "/degree/calculate", method = RequestMethod.POST)
-	public ResponseEntity<DegreeInfoResponse> calculateDegree(@RequestBody String actorName){
-		log.info("Starting calculateDegree process {}", actorName);
-		DegreeInfoResponse response = this.actionService.calculateDegree(actorName);
+	public ResponseEntity<DegreeInfoResponse> calculateDegree(@RequestBody ActorRequest actorRequest){
+		log.info("Starting calculateDegree process {}", actorRequest);
+		DegreeInfoResponse response = this.actionService.calculateDegree(actorRequest);
 		return ResponseEntity.accepted().body(response);
 	}
 

@@ -1,5 +1,6 @@
 package com.project.assessment.model;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -20,6 +21,7 @@ public class TitlePrincipals {
  
 	@Field("tconst")
 	@JsonProperty("tconst")
+	@Indexed
 	private String tconst;
 
 	@Field("ordering")

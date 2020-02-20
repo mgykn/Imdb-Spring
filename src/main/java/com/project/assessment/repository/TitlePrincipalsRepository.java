@@ -11,9 +11,8 @@ import com.project.assessment.model.TitlePrincipals;
 @Repository
 public interface TitlePrincipalsRepository extends MongoRepository<TitlePrincipals, String> {
 
-	List<TitlePrincipals> findByTconstAndCategory(String obj, String string);
+	List<TitlePrincipals> findByTconstInAndCategory(List<String> knownForTitles, String string);
 
-	List<TitlePrincipals> findByTconstAndCategoryIn(List<String> knownForTitles, String string);
 
 	
 	
